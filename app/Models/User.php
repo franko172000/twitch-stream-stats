@@ -21,6 +21,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'twitch_user_id',
+        'twitch_access_token',
+        'twitch_refresh_token',
+        'twitch_token_expiration',
     ];
 
     /**
@@ -40,5 +44,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'twitch_token_expiration' => 'datetime',
     ];
 }

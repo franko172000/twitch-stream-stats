@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use Illuminate\Http\Client\PendingRequest;
+use Illuminate\Support\Facades\Http;
 
 abstract class BaseApiService
 {
@@ -16,7 +17,10 @@ abstract class BaseApiService
     /**
      * @return PendingRequest
      */
-    abstract protected function httpClient(): PendingRequest;
+    protected function httpClient(): PendingRequest
+    {
+        return Http::baseUrl($this->baseUrl());
+    }
 
     /**
      * @param string $url

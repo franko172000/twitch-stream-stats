@@ -30,10 +30,11 @@
 </template>
 <script>
 import store from 'store'
-import { notification } from 'ant-design-vue'
-import {twitchLogin} from "../Services/Requests";
+import {twitchLogin} from "../services/requests";
+import {helpers} from "../mixins/helpers.mixins";
 export default {
     name: 'Login',
+    mixins: [helpers],
     data(){
         return {
             TWITCH_CLIENT_ID: import.meta.env.VITE_TWITCH_CLIENT_ID,
@@ -75,16 +76,6 @@ export default {
                 console.log(res);
             }catch (e){
             }
-        },
-        generateString(length) {
-            let result = '';
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            const charactersLength = characters.length;
-            for ( let i = 0; i < length; i++ ) {
-                result += characters.charAt(Math.floor(Math.random() *
-                    charactersLength));
-            }
-            return result;
         }
     }
 }
