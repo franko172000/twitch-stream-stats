@@ -30,7 +30,6 @@
 </template>
 <script>
 import store from 'store'
-import {twitchLogin} from "../services/requests";
 import {helpers} from "../mixins/helpers.mixins";
 export default {
     name: 'Login',
@@ -72,8 +71,7 @@ export default {
         },
         async login(code){
             try {
-                const res = await twitchLogin({code});
-                console.log(res);
+                this.$store.dispatch('user/loginUser', {payload: {code}});
             }catch (e){
             }
         }

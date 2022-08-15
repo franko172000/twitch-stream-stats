@@ -46,7 +46,8 @@ class AuthenticationAction extends Action
                 [
                     'name' => $twitchUser['display_name'],
                     'email' => $twitchUser['email'],
-                    'profile_image' => $twitchUser['profile_image_url']
+                    'profile_image' => $twitchUser['profile_image_url'],
+                    'twitch_user_id' => $twitchUser['id']
                 ],
                 $userTokenData
             ));

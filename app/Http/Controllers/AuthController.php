@@ -28,4 +28,13 @@ class AuthController extends Controller
             'access_token' => $token
         ]);
     }
+
+    public function appLogout()
+    {
+        $accessToken = auth()->user()->token();
+        $accessToken->revoke();
+        return response()->json([
+            'message' => 'successfully logged out'
+        ]);
+    }
 }

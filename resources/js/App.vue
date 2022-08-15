@@ -5,8 +5,22 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-    name: "App"
+    name: 'App',
+    computed: {
+        ...mapState('user', ['authorized']),
+        nextRoute() {
+            return this.$route.query.redirect || '/'
+        },
+        currentRoute() {
+            return this.$route.path
+        },
+    },
+    mounted() {
+        this.$store.dispatch('user/load_current_account')
+    },
 }
 </script>
 

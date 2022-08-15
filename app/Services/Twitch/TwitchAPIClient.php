@@ -7,7 +7,6 @@ use App\Services\BaseApiService;
 use Carbon\Carbon;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\RequestException;
-use Illuminate\Support\Facades\Http;
 
 class TwitchAPIClient extends BaseApiService
 {

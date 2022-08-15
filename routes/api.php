@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'auth/'], function () {
     Route::post('twitch/login', [\App\Http\Controllers\AuthController::class, 'loginWithTwitch']);
+    Route::post('logout', [\App\Http\Controllers\AuthController::class, 'appLogout'])
+        ->middleware('auth:sanctum');
+
 });
 
 Route::middleware('auth:sanctum')->group(function () {

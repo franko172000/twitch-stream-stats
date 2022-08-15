@@ -4,3 +4,7 @@ export const twitchLogin = async ({code})=>{
         code
     });
 }
+
+export const authLogout = async ()=>{
+    return apiClient.post('auth/logout');
+}
