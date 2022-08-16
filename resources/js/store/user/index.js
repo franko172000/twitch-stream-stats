@@ -86,9 +86,6 @@ export default  {
             authLogout().then(() => {
                 store.remove('user');
                 store.remove('accessToken')
-                if(store.get('temp_photos')){
-                    store.remove('temp_photos')
-                }
                 commit('SET_STATE', {
                     name: '',
                     userPhoto: '',

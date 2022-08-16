@@ -19,6 +19,7 @@ class TwitchAPIClient extends BaseApiService
         return env('TWITCH_API_DOMAIN');
     }
 
+
     protected function httpClient(): PendingRequest
     {
         return parent::httpClient()
@@ -42,9 +43,27 @@ class TwitchAPIClient extends BaseApiService
 
     /**
      * @param User $user
-     * @return string
+     * @param string|null $cursor
+     * @param int $limit
+     * @return array
+     * @throws RequestException
      */
-    protected function manageAccessToken(User $user): string
+    public function getStreams(User $user, ?string $cursor = null, int $limit = 100): array
+    {
+        $this->manageAccessToken($user);
+        return $this->httpClient()
+            ->get('streams', [
+                'first' => $limit,
+                'after' => $cursor
+            ])
+            ->throw()
+            ->json();
+    }
+
+    /**
+     * @param User $user
+     */
+    protected function manageAccessToken(User $user)
     {
         if (Carbon::now() > $user->twitch_token_expiration) {
             $authClient = resolve(TwitchOAuthClient::class);
