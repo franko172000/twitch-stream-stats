@@ -23,3 +23,11 @@ export const gameStreams = async ()=>{
 export const streamsByTime = async ()=>{
     return apiClient.get('streams-by-date');
 }
+
+export const followedStreams = async ()=>{
+    return apiClient.get('followed-streams');
+}
+
+export const syncStreams = async ()=>{
+    return apiClient.get('sync-followed-streams');
+}

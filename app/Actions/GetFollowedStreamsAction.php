@@ -3,16 +3,15 @@ declare(strict_types=1);
 
 namespace App\Actions;
 
-use App\Models\ActiveStream;
-use App\Models\Tags;
+use App\Models\FollowedStreams;
+use App\Models\User;
 use App\Services\Twitch\TwitchAPIClient;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Client\RequestException;
 
-class PullActiveStreamsAction extends Action
+class GetFollowedStreamsAction extends Action
 {
     protected TwitchAPIClient $APIClient;
-
-    protected int $streamCounter = 0;
 
     public function rules(): array
     {
@@ -22,31 +21,22 @@ class PullActiveStreamsAction extends Action
     }
 
     /**
+     * @return Collection
      * @throws RequestException
      */
-    public function execute()
+    public function execute(): Collection
     {
         $this->APIClient = resolve(TwitchAPIClient::class, [
             'accessToken' => $this->user->twitch_access_token
         ]);
 
-        $this->makeRequest();
-    }
+        $response = $this->APIClient->getFollowedStreams($this->user);
 
-    /**
-     * @param string|null $cursor
-     * @throws RequestException
-     */
-    protected function makeRequest(?string $cursor = null)
-    {
-        $response = $this->APIClient->getStreams($this->user, $cursor);
         $streams = data_get($response, 'data');
-        $responseCursor = data_get($response, 'pagination.cursor');
+
         $this->saveStreams($streams);
-        $this->streamCounter+=count($streams);
-        if (!empty($responseCursor) && $this->streamCounter <= 4000) {
-            $this->makeRequest($responseCursor);
-        }
+
+        return $this->user->followedStreams;
     }
 
     /**
@@ -54,9 +44,8 @@ class PullActiveStreamsAction extends Action
      */
     protected function saveStreams(array $streams)
     {
-        shuffle($streams);
         foreach ($streams as $stream) {
-            $activeStreams = ActiveStream::updateOrCreate([
+            $this->user->followedStreams()->updateOrCreate([
                 'twitch_stream_id' => $stream['id']
             ], [
                 'channel_name' => $stream['user_name'],
@@ -66,17 +55,6 @@ class PullActiveStreamsAction extends Action
                 'date_started' => $stream['started_at'],
                 'thumbnail_url' => $stream['thumbnail_url']
             ]);
-
-            $this->synTags($activeStreams, $stream['tag_ids']);
-        }
-    }
-
-    protected function synTags(ActiveStream $activeStream, ?array $streamTags)
-    {
-        if (!empty($streamTags)) {
-            $tags = Tags::whereIn('twitch_tag_id', $streamTags)->pluck('id');
-
-            $activeStream->tags()->sync($tags->toArray());
         }
     }
 }

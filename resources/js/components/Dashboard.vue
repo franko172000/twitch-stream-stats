@@ -443,7 +443,7 @@ import {
     OfficeBuildingIcon,
     SearchIcon,
 } from '@heroicons/vue/solid'
-import {gameStreams, streams, topGames,streamsByTime} from "../services/requests";
+import {gameStreams, streams, topGames, streamsByTime, syncStreams, followedStreams} from "../services/requests";
 
 const navigation = [
     { name: 'Home', href: '#', icon: HomeIcon, current: true },
@@ -512,6 +512,13 @@ onMounted( ()=>{
         console.log(res.data.data)
     })
 
+    // syncStreams().then(res=>{
+    //     console.log(res.data.data)
+    // })
+
+    followedStreams().then(res=>{
+        console.log(res.data.data)
+    })
 
 })
 </script>

@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\FilteredFollowedStreamsAction;
+use App\Actions\GetFollowedStreamsAction;
+use App\Http\Resources\FollowedStreamResource;
 use App\Http\Resources\StreamRescource;
 use App\Models\ActiveStream;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class StreamsController extends Controller
@@ -35,5 +40,22 @@ class StreamsController extends Controller
             ->groupBy('date_started')
             ->orderByRaw('ABS(UNIX_TIMESTAMP() - UNIX_TIMESTAMP(date_started))')
             ->paginate(10));
+    }
+
+    public function followedStreams(): AnonymousResourceCollection
+    {
+        $user = Auth::user();
+        return StreamRescource::collection(FilteredFollowedStreamsAction::run([
+            'user' => $user
+        ]));
+    }
+
+    public function syncFollowedStreams(): AnonymousResourceCollection
+    {
+        $user = Auth::user();
+        $followedStreams = GetFollowedStreamsAction::run([
+            'user' => $user
+        ]);
+        return FollowedStreamResource::collection($followedStreams);
     }
 }

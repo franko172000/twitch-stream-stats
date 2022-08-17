@@ -53,7 +53,7 @@ export default {
                 client_id: this.TWITCH_CLIENT_ID,
                 redirect_uri: this.TWITCH_REDIRECT_URL,
                 response_type : 'code',
-                scope: 'user:read:email',
+                scope: 'user:read:email user:read:follows',
                 state : this.handleState(),
             }
             return this.TWITCH_ID_DOMAIN + 'oauth2/authorize?' + new URLSearchParams(params);

@@ -62,6 +62,41 @@ class TwitchAPIClient extends BaseApiService
 
     /**
      * @param User $user
+     * @param string|null $cursor
+     * @param int $limit
+     * @return array
+     * @throws RequestException
+     */
+    public function getTags(User $user, ?string $cursor = null, int $limit = 100): array
+    {
+        $this->manageAccessToken($user);
+        return $this->httpClient()
+            ->get('tags/streams', [
+                'first' => $limit,
+                'after' => $cursor
+            ])
+            ->throw()
+            ->json();
+    }
+
+    /**
+     * @param User $user
+     * @return array
+     * @throws RequestException
+     */
+    public function getFollowedStreams(User $user): array
+    {
+        $this->manageAccessToken($user);
+        return $this->httpClient()
+            ->get('streams/followed', [
+                'user_id' => $user->twitch_user_id,
+            ])
+            ->throw()
+            ->json();
+    }
+
+    /**
+     * @param User $user
      */
     protected function manageAccessToken(User $user)
     {

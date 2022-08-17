@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use PhpCsFixer\DocBlock\Tag;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class ActiveStream extends Model
+class FollowedStreams extends Model
 {
     use HasFactory;
 
@@ -20,21 +20,13 @@ class ActiveStream extends Model
         'thumbnail_url',
     ];
 
-    protected $with = ['tags'];
-
     protected $casts = [
         'date_started' => 'datetime',
         'viewers_count' => 'int'
     ];
 
-    public function scopeTopStreams($query, $limit = 1000)
+    public function user(): BelongsTo
     {
-        return $query->orderBy('viewers_count', 'desc')
-            ->limit($limit);
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany(Tags::class, 'active_stream_tag', 'active_stream_id', 'tag_id');
+        return $this->belongsTo(User::class);
     }
 }

@@ -25,4 +25,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('top-games', [\App\Http\Controllers\StreamsController::class, 'topGames']);
     Route::get('game-streams', [\App\Http\Controllers\StreamsController::class, 'streamsPerGame']);
     Route::get('streams-by-date', [\App\Http\Controllers\StreamsController::class, 'streamsByStartTime']);
+    Route::get('sync-followed-streams', [\App\Http\Controllers\StreamsController::class, 'syncFollowedStreams']);
+    Route::get('followed-streams', [\App\Http\Controllers\StreamsController::class, 'followedStreams']);
 });
