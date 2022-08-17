@@ -20,7 +20,6 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    console.log(to);
     if (to.matched.some(record => record.meta.authRequired)) {
         if (!localStore.get('accessToken')) {
             next({
