@@ -19,14 +19,12 @@ apiClient.interceptors.request.use(request => {
 apiClient.interceptors.response.use(undefined, error => {
   const { response } = error
   const { data } = response
-  if (data) {
-    // if(data.token_expired){
-    //     store.remove('accessToken');
-    //     window.location.href = '/auth/login';
-    // }
-    notification.error({
-      message: data.errors ? processError(data.errors) : data.message,
-    })
+  if (response.status === 401) {
+      store.remove('accessToken');
+      window.location.href = '/auth/login';
+      notification.error({
+          message: data.errors ? processError(data.errors) : data.message,
+      })
   }
   return Promise.reject(error)
 })

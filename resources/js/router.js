@@ -5,11 +5,27 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'dashboard',
-      component: () => import('./components/Dashboard.vue'),
+      component: () => import('./layout/UserPanel.vue'),
       meta:{
           authRequired:true
-      }
+      },
+      children: [
+          {
+              path: '/',
+              name: 'dashboard',
+              component: () => import('./components/Dashboard.vue'),
+          },
+          {
+              path: '/streams',
+              name: 'streams',
+              component: () => import('./components/Streams.vue'),
+          },
+          {
+              path: '/followed-streams',
+              name: 'followedStreams',
+              component: () => import('./components/FollowedStreams.vue'),
+          },
+      ]
     },
       {
       path: '/auth/login',
