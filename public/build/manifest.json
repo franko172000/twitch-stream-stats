@@ -1,6 +1,6 @@
 {
   "resources/js/app.js": {
-    "file": "assets/app.c304d35e.js",
+    "file": "assets/app.6a4a79cd.js",
     "src": "resources/js/app.js",
     "isEntry": true,
     "dynamicImports": [
@@ -12,7 +12,7 @@
     ]
   },
   "resources/js/layout/UserPanel.vue": {
-    "file": "assets/UserPanel.a91b2b30.js",
+    "file": "assets/UserPanel.da94802a.js",
     "src": "resources/js/layout/UserPanel.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -20,40 +20,40 @@
     ]
   },
   "resources/js/components/Dashboard.vue": {
-    "file": "assets/Dashboard.6877219a.js",
+    "file": "assets/Dashboard.ae271a76.js",
     "src": "resources/js/components/Dashboard.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_StreamList.e0d7095b.js"
+      "_StreamList.36fa9f39.js"
     ]
   },
-  "_StreamList.e0d7095b.js": {
-    "file": "assets/StreamList.e0d7095b.js",
+  "_StreamList.36fa9f39.js": {
+    "file": "assets/StreamList.36fa9f39.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
   "resources/js/components/Streams.vue": {
-    "file": "assets/Streams.79bf1551.js",
+    "file": "assets/Streams.40090729.js",
     "src": "resources/js/components/Streams.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_StreamList.e0d7095b.js"
+      "_StreamList.36fa9f39.js"
     ]
   },
   "resources/js/components/FollowedStreams.vue": {
-    "file": "assets/FollowedStreams.10c97a03.js",
+    "file": "assets/FollowedStreams.fe785b5e.js",
     "src": "resources/js/components/FollowedStreams.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_StreamList.e0d7095b.js"
+      "_StreamList.36fa9f39.js"
     ]
   },
   "resources/js/components/Login.vue": {
-    "file": "assets/Login.b146f99d.js",
+    "file": "assets/Login.09767fe4.js",
     "src": "resources/js/components/Login.vue",
     "isDynamicEntry": true,
     "imports": [
