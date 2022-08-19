@@ -1,0 +1,373 @@
+{
+    "data": [
+        {
+            "id": "39571460455",
+            "user_id": "103825127",
+            "user_login": "hanryang1125",
+            "user_name": "풍월량",
+            "game_id": "1127342185",
+            "game_name": "Arcade Paradise",
+            "type": "live",
+            "title": "오락실 경영하는 게임   Arcade Paradise  풍월량",
+            "viewer_count": 21638,
+            "started_at": "2022-08-15T11:22:28Z",
+            "language": "ko",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_hanryang1125-{width}x{height}.jpg",
+            "tag_ids": [
+                "ab2975e3-b9ca-4b1a-a93e-fb61a5d5c3a4"
+            ],
+            "is_mature": false
+        },
+        {
+            "id": "46990446589",
+            "user_id": "88084663",
+            "user_login": "brucedropemoff",
+            "user_name": "BruceDropEmOff",
+            "game_id": "950189725",
+            "game_name": "MultiVersus",
+            "type": "live",
+            "title": "🟡🟨DAMN BRUCE YOU STILL LIVE? BOYS NIGHT!!!!!!!!!!  DEO4L🟡 raycondones on ig & twitter !sub !otk !yt !razer !form",
+            "viewer_count": 20354,
+            "started_at": "2022-08-15T00:50:46Z",
+            "language": "en",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_brucedropemoff-{width}x{height}.jpg",
+            "tag_ids": [
+                "6ea6bca4-4712-4ab9-a906-e3336a9d8039"
+            ],
+            "is_mature": true
+        },
+        {
+            "id": "39724983912",
+            "user_id": "65171890",
+            "user_login": "rainbow6",
+            "user_name": "Rainbow6",
+            "game_id": "460630",
+            "game_name": "Tom Clancy's Rainbow Six Siege",
+            "type": "live",
+            "title": "Six Berlin Major – Group Stage – Day 1 – Stream A",
+            "viewer_count": 20143,
+            "started_at": "2022-08-15T08:25:51Z",
+            "language": "en",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_rainbow6-{width}x{height}.jpg",
+            "tag_ids": [
+                "36a89a80-4fcd-4b74-b3d2-2c6fd9b30c95",
+                "6ea6bca4-4712-4ab9-a906-e3336a9d8039",
+                "c2542d6d-cd10-4532-919b-3d19f30a768b",
+                "2a14b52e-d459-4c92-be11-5d86b898f6b6"
+            ],
+            "is_mature": true
+        },
+        {
+            "id": "39571180199",
+            "user_id": "49045679",
+            "user_login": "woowakgood",
+            "user_name": "우왁굳",
+            "game_id": "2132650309",
+            "game_name": "Stacklands",
+            "type": "live",
+            "title": "스택랜즈",
+            "viewer_count": 19094,
+            "started_at": "2022-08-15T09:38:23Z",
+            "language": "ko",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_woowakgood-{width}x{height}.jpg",
+            "tag_ids": [
+                "ab2975e3-b9ca-4b1a-a93e-fb61a5d5c3a4"
+            ],
+            "is_mature": false
+        },
+        {
+            "id": "39571311447",
+            "user_id": "77415295",
+            "user_login": "jasper7se",
+            "user_name": "Jasper7se",
+            "game_id": "516575",
+            "game_name": "VALORANT",
+            "type": "live",
+            "title": "さそわれたからバロする",
+            "viewer_count": 17266,
+            "started_at": "2022-08-15T10:33:14Z",
+            "language": "ja",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_jasper7se-{width}x{height}.jpg",
+            "tag_ids": [
+                "6ba1d230-e52f-4d81-b1e0-41f25a8a9f5d"
+            ],
+            "is_mature": false
+        },
+        {
+            "id": "39571710391",
+            "user_id": "29654002",
+            "user_login": "aba4647",
+            "user_name": "랄로",
+            "game_id": "509658",
+            "game_name": "Just Chatting",
+            "type": "live",
+            "title": "매일방송하기 1일차 (진)",
+            "viewer_count": 15285,
+            "started_at": "2022-08-15T12:32:17Z",
+            "language": "ko",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_aba4647-{width}x{height}.jpg",
+            "tag_ids": [
+                "69318d09-f132-4853-b4b6-09a0580f7092",
+                "ab2975e3-b9ca-4b1a-a93e-fb61a5d5c3a4"
+            ],
+            "is_mature": false
+        },
+        {
+            "id": "39725169864",
+            "user_id": "85397463",
+            "user_login": "noway4u_sir",
+            "user_name": "NoWay4u_Sir",
+            "game_id": "21779",
+            "game_name": "League of Legends",
+            "type": "live",
+            "title": "18 Uhr NNO vs Sprout - die letzten Vorbereitungen (aus dem !1337 Bootcamp)",
+            "viewer_count": 14006,
+            "started_at": "2022-08-15T10:01:19Z",
+            "language": "de",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_noway4u_sir-{width}x{height}.jpg",
+            "tag_ids": [
+                "9166ad14-41f1-4b04-a3b8-c8eb838c6be6"
+            ],
+            "is_mature": false
+        },
+        {
+            "id": "46992681837",
+            "user_id": "26610234",
+            "user_login": "cohhcarnage",
+            "user_name": "CohhCarnage",
+            "game_id": "1262047844",
+            "game_name": "Marvel's Spider-Man Remastered",
+            "type": "live",
+            "title": "Spiderman Remastered! - !MobileApp / !CultThoughts / !ModApp - #EpicPartner Creator Code: COHH - !PC",
+            "viewer_count": 13977,
+            "started_at": "2022-08-15T11:48:52Z",
+            "language": "en",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_cohhcarnage-{width}x{height}.jpg",
+            "tag_ids": [
+                "6ea6bca4-4712-4ab9-a906-e3336a9d8039"
+            ],
+            "is_mature": false
+        },
+        {
+            "id": "40073849225",
+            "user_id": "181077473",
+            "user_login": "gaules",
+            "user_name": "Gaules",
+            "game_id": "460630",
+            "game_name": "Tom Clancy's Rainbow Six Siege",
+            "type": "live",
+            "title": "Brasil no Six Berlin Major 2022 - !vote - Siga @gaules nas redes sociais",
+            "viewer_count": 13713,
+            "started_at": "2022-08-15T11:42:10Z",
+            "language": "pt",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_gaules-{width}x{height}.jpg",
+            "tag_ids": [
+                "c2542d6d-cd10-4532-919b-3d19f30a768b",
+                "c2839af5-f1d2-46c4-8edc-1d0bfbd85070",
+                "39ee8140-901a-4762-bfca-8260dea1310f"
+            ],
+            "is_mature": true
+        },
+        {
+            "id": "39725185640",
+            "user_id": "70075625",
+            "user_login": "silvername",
+            "user_name": "SilverName",
+            "game_id": "138585",
+            "game_name": "Hearthstone",
+            "type": "live",
+            "title": "billyReady АРЕНА billyReady | В гостях у Фиу | https://t.me/SilverNameTV - для связи если забанят твич",
+            "viewer_count": 12720,
+            "started_at": "2022-08-15T10:08:50Z",
+            "language": "ru",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_silvername-{width}x{height}.jpg",
+            "tag_ids": [
+                "0569b171-2a2b-476e-a596-5bdfb45a1327"
+            ],
+            "is_mature": false
+        },
+        {
+            "id": "39725604264",
+            "user_id": "515044370",
+            "user_login": "paradeev1ch",
+            "user_name": "paradeev1ch",
+            "game_id": "509658",
+            "game_name": "Just Chatting",
+            "type": "live",
+            "title": "я выигрывал интернешунал",
+            "viewer_count": 9901,
+            "started_at": "2022-08-15T13:01:50Z",
+            "language": "ru",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_paradeev1ch-{width}x{height}.jpg",
+            "tag_ids": [
+                "0569b171-2a2b-476e-a596-5bdfb45a1327"
+            ],
+            "is_mature": true
+        },
+        {
+            "id": "39570401879",
+            "user_id": "102381201",
+            "user_login": "ddahyoni",
+            "user_name": "따효니",
+            "game_id": "21779",
+            "game_name": "League of Legends",
+            "type": "live",
+            "title": "얼마나 더해줘 어?",
+            "viewer_count": 9124,
+            "started_at": "2022-08-15T03:12:25Z",
+            "language": "ko",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_ddahyoni-{width}x{height}.jpg",
+            "tag_ids": [
+                "ab2975e3-b9ca-4b1a-a93e-fb61a5d5c3a4"
+            ],
+            "is_mature": false
+        },
+        {
+            "id": "45924085580",
+            "user_id": "431460701",
+            "user_login": "xxxthefocusxxx",
+            "user_name": "xXxTheFocuSxXx",
+            "game_id": "27471",
+            "game_name": "Minecraft",
+            "type": "live",
+            "title": "TortillaLand 2 | #2",
+            "viewer_count": 9040,
+            "started_at": "2022-08-15T12:30:15Z",
+            "language": "es",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_xxxthefocusxxx-{width}x{height}.jpg",
+            "tag_ids": [
+                "d4bb9c58-2141-4881-bcdc-3fe0505457d1"
+            ],
+            "is_mature": false
+        },
+        {
+            "id": "41122343659",
+            "user_id": "160504245",
+            "user_login": "39daph",
+            "user_name": "39daph",
+            "game_id": "31339",
+            "game_name": "Project Zomboid",
+            "type": "live",
+            "title": "!merch",
+            "viewer_count": 8913,
+            "started_at": "2022-08-15T06:07:37Z",
+            "language": "en",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_39daph-{width}x{height}.jpg",
+            "tag_ids": [
+                "6ea6bca4-4712-4ab9-a906-e3336a9d8039"
+            ],
+            "is_mature": false
+        },
+        {
+            "id": "45923980620",
+            "user_id": "81623587",
+            "user_login": "gensyxa",
+            "user_name": "GENSYXA",
+            "game_id": "509658",
+            "game_name": "Just Chatting",
+            "type": "live",
+            "title": "2кисы😼",
+            "viewer_count": 8853,
+            "started_at": "2022-08-15T12:05:26Z",
+            "language": "ru",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_gensyxa-{width}x{height}.jpg",
+            "tag_ids": [
+                "0569b171-2a2b-476e-a596-5bdfb45a1327"
+            ],
+            "is_mature": true
+        },
+        {
+            "id": "40073811577",
+            "user_id": "47071880",
+            "user_login": "yoda",
+            "user_name": "YoDa",
+            "game_id": "21779",
+            "game_name": "League of Legends",
+            "type": "live",
+            "title": "AQUECIMENTO PARA A SAGA  CHALLENGER EM 2 JOGOS DA RITO  - X2 DIA 10/09",
+            "viewer_count": 8847,
+            "started_at": "2022-08-15T11:02:55Z",
+            "language": "pt",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_yoda-{width}x{height}.jpg",
+            "tag_ids": [
+                "39ee8140-901a-4762-bfca-8260dea1310f"
+            ],
+            "is_mature": true
+        },
+        {
+            "id": "46992791149",
+            "user_id": "119407348",
+            "user_login": "shxtou",
+            "user_name": "shxtou",
+            "game_id": "1646904797",
+            "game_name": "Murder House",
+            "type": "live",
+            "title": "PLAYING 3 SCARY GAMES... | Murder House",
+            "viewer_count": 8096,
+            "started_at": "2022-08-15T13:03:48Z",
+            "language": "en",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_shxtou-{width}x{height}.jpg",
+            "tag_ids": [
+                "6ea6bca4-4712-4ab9-a906-e3336a9d8039"
+            ],
+            "is_mature": false
+        },
+        {
+            "id": "39570236343",
+            "user_id": "48962167",
+            "user_login": "vodkavdk",
+            "user_name": "ボドカさん",
+            "game_id": "516575",
+            "game_name": "VALORANT",
+            "type": "live",
+            "title": "昼からVALOきもち＾＾",
+            "viewer_count": 7843,
+            "started_at": "2022-08-15T01:13:06Z",
+            "language": "ja",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_vodkavdk-{width}x{height}.jpg",
+            "tag_ids": [
+                "6ba1d230-e52f-4d81-b1e0-41f25a8a9f5d"
+            ],
+            "is_mature": false
+        },
+        {
+            "id": "46992730141",
+            "user_id": "123182260",
+            "user_login": "hiswattson",
+            "user_name": "HisWattson",
+            "game_id": "511224",
+            "game_name": "Apex Legends",
+            "type": "live",
+            "title": "Former Rank #1 | ALGS MVP | !advice !sens !Voltaic !LanMontage !1v3 !algsHighlights | Twitter @HisWattson",
+            "viewer_count": 7530,
+            "started_at": "2022-08-15T12:24:32Z",
+            "language": "en",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_hiswattson-{width}x{height}.jpg",
+            "tag_ids": [
+                "6ea6bca4-4712-4ab9-a906-e3336a9d8039"
+            ],
+            "is_mature": false
+        },
+        {
+            "id": "45923757068",
+            "user_id": "24147592",
+            "user_login": "gotaga",
+            "user_name": "Gotaga",
+            "game_id": "1833197007",
+            "game_name": "Tower of Fantasy",
+            "type": "live",
+            "title": "Oh non... je suis piqué. L'aventure du roi des baleines continue... (Server: Futuria)",
+            "viewer_count": 7178,
+            "started_at": "2022-08-15T11:08:16Z",
+            "language": "fr",
+            "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_gotaga-{width}x{height}.jpg",
+            "tag_ids": [
+                "6f655045-9989-4ef7-8f85-1edcec42d648"
+            ],
+            "is_mature": false
+        }
+    ],
+    "pagination": {
+        "cursor": "eyJiIjp7IkN1cnNvciI6ImV5SnpJam95TVRZek9DNHdNRFEzTWpnMU9EVXdNVFlzSW1RaU9tWmhiSE5sTENKMElqcDBjblZsZlE9PSJ9LCJhIjp7IkN1cnNvciI6ImV5SnpJam8zTVRjNExqRTBPVFk1TlRBek1UUTBNaXdpWkNJNlptRnNjMlVzSW5RaU9uUnlkV1Y5In19"
+    }
+}
