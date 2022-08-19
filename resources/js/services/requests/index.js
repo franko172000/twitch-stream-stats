@@ -9,8 +9,12 @@ export const authLogout = async ()=>{
     return apiClient.post('auth/logout');
 }
 
-export const streams = async ()=>{
-    return apiClient.get('streams');
+export const streams = async (page)=>{
+    return apiClient.get('streams', {
+        params:{
+            page
+        }
+    });
 }
 
 export const topGames = async ()=>{

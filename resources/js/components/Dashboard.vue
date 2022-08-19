@@ -94,7 +94,7 @@
                                         </dt>
                                         <dd>
                                             <div class="text-lg font-medium text-gray-900">
-                                                4000
+                                                {{medianStream}}
                                             </div>
                                         </dd>
                                     </dl>
@@ -226,12 +226,14 @@ const games = ref([]);
 const streamGames = ref([]);
 const totalStreams = ref(0)
 const totalGames = ref(0)
+const medianStream = ref(0)
 const store = useStore()
 const user = computed(()=> store.getters["user/user"])
 onMounted( ()=>{
     streams().then((res)=>{
         streamsArr.value = res.data.data;
         totalStreams.value = res.data.meta.total
+        medianStream.value = res.data.median_views
     })
     topGames()
     .then((res)=>{

@@ -54,7 +54,7 @@
                 </div>
                 <nav class="mt-5 flex-1 flex flex-col divide-y divide-cyan-800 overflow-y-auto" aria-label="Sidebar">
                     <div class="px-2 space-y-1">
-                        <router-link v-for="item in navigation" :key="item.name" :to="item.href" :class="[item.current ? 'bg-cyan-800 text-white' : 'text-cyan-100 hover:text-white hover:bg-cyan-600', 'group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md']" :aria-current="item.current ? 'page' : undefined">
+                        <router-link v-for="item in navigation" :key="item.name" :to="{name: item.routeName}" :class="[item.routeName === route.name ? 'bg-cyan-800 text-white' : 'text-cyan-100 hover:text-white hover:bg-cyan-600', 'group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md']" :aria-current="item.current ? 'page' : undefined">
                             <component :is="item.icon" class="mr-4 flex-shrink-0 h-6 w-6 text-cyan-200" aria-hidden="true" />
                             {{ item.name }}
                         </router-link>
@@ -122,7 +122,8 @@
 </template>
 
 <script setup>
-import {computed, ref} from 'vue'
+import {computed, onMounted, ref} from 'vue'
+import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 import store from 'store'
 import {
@@ -161,15 +162,17 @@ import {gameStreams, streams, topGames, streamsByTime, syncStreams, followedStre
 import localStore from "store";
 
 const navigation = [
-    { name: 'Home', href: '/', icon: HomeIcon, current: true },
-    { name: 'Streams', href: '/streams', icon: ClockIcon, current: false },
-    { name: 'Followed Streams', href: '/followed-streams', icon: ScaleIcon, current: false }
+    { name: 'Home', routeName: 'dashboard', icon: HomeIcon, current: true },
+    { name: 'Streams', routeName: 'streams', icon: ClockIcon, current: false },
+    { name: 'Followed Streams', routeName: 'followedStreams', icon: ScaleIcon, current: false }
 ]
 const secondaryNavigation = [
     { name: 'Logout', href: '#', icon: CogIcon },
 ]
 
 const vueStore = useStore()
+
+const route = useRoute()
 
 const user = computed(()=> vueStore.getters["user/user"])
 

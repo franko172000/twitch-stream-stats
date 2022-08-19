@@ -16,7 +16,12 @@ class StreamsController extends Controller
 {
     public function topStreams()
     {
-        return StreamRescource::collection(ActiveStream::orderBy('viewers_count', 'desc')->paginate(100));
+        $streamsViews = ActiveStream::pluck('viewers_count');
+        return StreamRescource::collection(
+            ActiveStream::orderBy('viewers_count', 'desc')->paginate(100)
+        )->additional([
+            'median_views' => $streamsViews->median()
+        ]);
     }
 
     public function topGames()

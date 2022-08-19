@@ -38,6 +38,32 @@
                         </tr>
                         </tbody>
                     </table>
+                    <!-- Pagination -->
+                    <nav v-if="paginationMeta" class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6" aria-label="Pagination">
+                        <div class="hidden sm:flex sm:block">
+                            <p class="text-sm text-gray-700 mr-10">
+                                Showing
+                                {{ ' ' }}
+                                <span class="font-medium">{{paginationMeta.current_page}}</span>
+                                {{ ' ' }}
+                                to
+                                {{ ' ' }}
+                                <span class="font-medium">{{paginationMeta.last_page}}</span>
+                                {{ ' ' }}
+                                of
+                                {{ ' ' }}
+                                <span class="font-medium">{{paginationMeta.total}}</span>
+                                {{ ' ' }}
+                                results
+                            </p>
+                            <p class="text-sm text-gray-700">Per page <span class="font-medium">{{paginationMeta.per_page}}</span></p>
+                        </div>
+                        <div class="flex-1 flex justify-between sm:justify-end">
+
+                            <a v-if="paginate > 1" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50" @click="paginate--"> Previous </a>
+                            <a v-if="paginate < paginationMeta.last_page" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50" @click="paginate++"> Next </a>
+                        </div>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -46,6 +72,7 @@
 
 <script setup>
 import moment from 'moment'
+import {ref, watch, watchEffect} from 'vue'
 import {
     CashIcon,
     CheckCircleIcon,
@@ -54,12 +81,20 @@ import {
     OfficeBuildingIcon,
     SearchIcon,
 } from '@heroicons/vue/solid'
-const props = defineProps({
+import {computed} from "vue";
+defineProps({
     streams: {
         type: Array,
         required: true
-    }
+    },
+    paginationMeta:{
+        type: Object,
+    },
 })
+const emit = defineEmits(['onPaginate'])
+const paginate = ref(1)
+watch(paginate, ()=>emit('onPaginate', paginate.value))
+
 const statusStyles = {
     success: 'bg-green-100 text-green-800',
     processing: 'bg-yellow-100 text-yellow-800',
