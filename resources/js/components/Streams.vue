@@ -9,7 +9,11 @@
 
         <div class="mt-8">
             <!-- Activity table (small breakpoint and up) -->
-            <stream-list :streams="streamsArr" :pagination-meta="paginationMeta" @onPaginate="trackPagination" />
+            <stream-list
+                :streams="streamsArr"
+                :loader="streamLoader"
+                :pagination-meta="paginationMeta"
+                @onPaginate="trackPagination" />
         </div>
     </main>
 </template>
@@ -22,11 +26,13 @@ import {streams} from "../services/requests";
 
 
 const streamsArr = ref([]);
+const streamLoader = ref(true)
 const paginationMeta = ref({})
 async function getStreams(page){
     const res = await streams(page);
     streamsArr.value = res.data.data;
     paginationMeta.value = res.data.meta;
+    streamLoader.value = false;
 }
 async function trackPagination(val){
     await getStreams(val)

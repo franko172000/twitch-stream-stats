@@ -43,7 +43,8 @@
                                             Total Streams
                                         </dt>
                                         <dd>
-                                            <div class="text-lg font-medium text-gray-900">
+                                            <loader v-if="streamLoader" class-name="w-5 h-5" />
+                                            <div v-if="!streamLoader" class="text-lg font-medium text-gray-900">
                                                 {{totalStreams}}
                                             </div>
                                         </dd>
@@ -68,7 +69,8 @@
                                             Total Games
                                         </dt>
                                         <dd>
-                                            <div class="text-lg font-medium text-gray-900">
+                                            <loader v-if="gamesLoader" class-name="w-5 h-5" />
+                                            <div v-if="!gamesLoader" class="text-lg font-medium text-gray-900">
                                                 {{totalGames}}
                                             </div>
                                         </dd>
@@ -93,7 +95,8 @@
                                             Median number of viewers
                                         </dt>
                                         <dd>
-                                            <div class="text-lg font-medium text-gray-900">
+                                            <loader v-if="streamLoader" class-name="w-5 h-5" />
+                                            <div v-if="!streamLoader" class="text-lg font-medium text-gray-900">
                                                 {{medianStream}}
                                             </div>
                                         </dd>
@@ -113,12 +116,14 @@
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 gap-4">
                 <div class="w-full">
                     <h2 class="max-w-6xl mx-auto mt-8 text-lg leading-6 font-medium text-gray-900">Top Games by Viewers</h2>
+
                     <!-- Activity table (small breakpoint and up) -->
                     <div class="hidden sm:block">
                         <div class="w-full">
                             <div class="flex flex-col mt-2">
                                 <div class="align-middle min-w-full overflow-x-auto shadow overflow-hidden sm:rounded-lg">
-                                    <table class="min-w-full divide-y divide-gray-200">
+                                    <loader v-if="gamesLoader" class-name="w-8 h-8" />
+                                    <table v-if="!gamesLoader"  class="min-w-full divide-y divide-gray-200">
                                         <thead>
                                         <tr>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-sm font-semibold text-gray-900" scope="col">Game name</th>
@@ -160,7 +165,8 @@
                         <div class="max-w-6xl">
                             <div class="flex flex-col mt-2">
                                 <div class="align-middle min-w-full overflow-x-auto shadow overflow-hidden sm:rounded-lg">
-                                    <table class="min-w-full divide-y divide-gray-200">
+                                    <loader v-if="streamGamesLoader" class-name="w-8 h-8" />
+                                    <table v-if="!streamGamesLoader" class="min-w-full divide-y divide-gray-200">
                                         <thead>
                                         <tr>
                                             <th class="px-6 py-3 bg-gray-50 text-left text-sm font-semibold text-gray-900" scope="col">Game name</th>
@@ -196,9 +202,8 @@
             </div>
 
             <h2 class="max-w-6xl mx-auto mt-8 px-4 text-lg leading-6 font-medium text-gray-900 sm:px-6 lg:px-8">Top 100 Streams</h2>
-
             <!-- Activity table (small breakpoint and up) -->
-            <stream-list :streams="streamsArr" />
+            <stream-list :streams="streamsArr" :loader="streamLoader"  />
         </div>
     </main>
 </template>
@@ -216,14 +221,18 @@ import {
     SearchIcon,
 } from '@heroicons/vue/solid'
 import {gameStreams, streams, topGames, streamsByTime, syncStreams, followedStreams} from "../services/requests";
+import Loader from "./utils/Loader.vue";
 const statusStyles = {
     success: 'bg-green-100 text-green-800',
     processing: 'bg-yellow-100 text-yellow-800',
     failed: 'bg-gray-100 text-gray-800',
 }
 const streamsArr = ref([]);
+const streamLoader = ref(true)
 const games = ref([]);
+const gamesLoader = ref(true);
 const streamGames = ref([]);
+const streamGamesLoader = ref(true);
 const totalStreams = ref(0)
 const totalGames = ref(0)
 const medianStream = ref(0)
@@ -234,27 +243,20 @@ onMounted( ()=>{
         streamsArr.value = res.data.data;
         totalStreams.value = res.data.meta.total
         medianStream.value = res.data.median_views
+        streamLoader.value = false;
     })
     topGames()
     .then((res)=>{
         games.value = res.data.data;
+        gamesLoader.value = false
     })
 
     gameStreams()
     .then((res)=>{
         streamGames.value = res.data.data
         totalGames.value = res.data.meta.total
+        streamGamesLoader.value = false
     })
-
-    streamsByTime()
-    .then(res => {
-        console.log(res.data.data)
-    })
-
-    followedStreams().then(res=>{
-        console.log(res.data.data)
-    });
-
 })
 </script>
 <script>

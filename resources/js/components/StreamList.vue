@@ -3,7 +3,8 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col mt-2">
                 <div class="align-middle min-w-full overflow-x-auto shadow overflow-hidden sm:rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-200">
+                    <loader v-if="loader" class-name="w-8 h-8" />
+                    <table v-if="!loader" class="min-w-full divide-y divide-gray-200">
                         <thead>
                         <tr>
                             <th class="px-6 py-3 bg-gray-50 text-left text-sm font-semibold text-gray-900" scope="col">Stream Title</th>
@@ -82,6 +83,7 @@ import {
     SearchIcon,
 } from '@heroicons/vue/solid'
 import {computed} from "vue";
+import Loader from "./utils/Loader.vue";
 defineProps({
     streams: {
         type: Array,
@@ -90,6 +92,9 @@ defineProps({
     paginationMeta:{
         type: Object,
     },
+    loader: {
+        type: Boolean
+    }
 })
 const emit = defineEmits(['onPaginate'])
 const paginate = ref(1)

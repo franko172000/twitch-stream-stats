@@ -9,7 +9,10 @@
 
         <div class="mt-8">
             <!-- Activity table (small breakpoint and up) -->
-            <stream-list :streams="streamsArr"/>
+            <stream-list
+                :streams="streamsArr"
+                :loader="streamLoader"
+            />
         </div>
     </main>
 </template>
@@ -35,9 +38,11 @@ const statusStyles = {
 }
 
 const streamsArr = ref([]);
+const streamLoader = ref(true)
 onMounted( async ()=>{
     const res = await followedStreams();
     streamsArr.value = res.data.data;
+    streamLoader.value = false
 })
 </script>
 <script>

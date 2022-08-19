@@ -1,6 +1,6 @@
 {
   "resources/js/app.js": {
-    "file": "assets/app.6a4a79cd.js",
+    "file": "assets/app.61f35df4.js",
     "src": "resources/js/app.js",
     "isEntry": true,
     "dynamicImports": [
@@ -12,7 +12,7 @@
     ]
   },
   "resources/js/layout/UserPanel.vue": {
-    "file": "assets/UserPanel.da94802a.js",
+    "file": "assets/UserPanel.e41f7735.js",
     "src": "resources/js/layout/UserPanel.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -20,40 +20,40 @@
     ]
   },
   "resources/js/components/Dashboard.vue": {
-    "file": "assets/Dashboard.ae271a76.js",
+    "file": "assets/Dashboard.119db8fd.js",
     "src": "resources/js/components/Dashboard.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_StreamList.36fa9f39.js"
+      "_StreamList.7bf95f58.js"
     ]
   },
-  "_StreamList.36fa9f39.js": {
-    "file": "assets/StreamList.36fa9f39.js",
+  "_StreamList.7bf95f58.js": {
+    "file": "assets/StreamList.7bf95f58.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
   "resources/js/components/Streams.vue": {
-    "file": "assets/Streams.40090729.js",
+    "file": "assets/Streams.c6192ec3.js",
     "src": "resources/js/components/Streams.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_StreamList.36fa9f39.js"
+      "_StreamList.7bf95f58.js"
     ]
   },
   "resources/js/components/FollowedStreams.vue": {
-    "file": "assets/FollowedStreams.fe785b5e.js",
+    "file": "assets/FollowedStreams.8f614a64.js",
     "src": "resources/js/components/FollowedStreams.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_StreamList.36fa9f39.js"
+      "_StreamList.7bf95f58.js"
     ]
   },
   "resources/js/components/Login.vue": {
-    "file": "assets/Login.09767fe4.js",
+    "file": "assets/Login.69031c1f.js",
     "src": "resources/js/components/Login.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -61,7 +61,7 @@
     ]
   },
   "resources/sass/app.scss": {
-    "file": "assets/app.a1920751.css",
+    "file": "assets/app.746b3a26.css",
     "src": "resources/sass/app.scss",
     "isEntry": true
   }
