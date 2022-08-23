@@ -4,31 +4,31 @@
             <div class="flex flex-col mt-2">
                 <div class="align-middle min-w-full overflow-x-auto shadow overflow-hidden sm:rounded-lg">
                     <loader v-if="loader" class-name="w-8 h-8" />
-                    <table v-if="!loader" class="min-w-full divide-y divide-gray-200">
+                    <table v-if="!loader" class="table-fixed min-w-full divide-y divide-gray-200">
                         <thead>
                         <tr>
                             <th class="px-6 py-3 bg-gray-50 text-left text-sm font-semibold text-gray-900" scope="col">Stream Title</th>
                             <th class="px-6 py-3 bg-gray-50 text-right text-sm font-semibold text-gray-900" scope="col">Game name</th>
-                            <th class="hidden px-6 py-3 bg-gray-50 text-left text-sm font-semibold text-gray-900 md:block" scope="col">Viewers</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-sm font-semibold text-gray-900 flex cursor-pointer group" @click="sort">Viewers <ArrowNarrowUpIcon class="hidden w-5 h-5 group-hover:block" :class="ascending ? 'rotate-180' : 'rotate-0'" /></th>
                             <th class="px-6 py-3 bg-gray-50 text-right text-sm font-semibold text-gray-900" scope="col">Started At</th>
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                         <tr v-for="stream in streams" :key="stream.id" class="bg-white">
-                            <td class="max-w-0 w-full px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                            <td class="max-w-0 px-6 py-4 w-1/3 text-sm text-gray-900">
                                 <div class="flex">
-                                    <a href="#" class="group inline-flex space-x-2 truncate text-sm">
+                                    <a href="#" class="group inline-flex space-x-2 text-sm">
                                         <CashIcon class="flex-shrink-0 h-5 w-5 text-gray-400 group-hover:text-gray-500" aria-hidden="true" />
-                                        <p class="text-gray-500 truncate group-hover:text-gray-900">
+                                        <p class="text-gray-500 group-hover:text-gray-900">
                                             {{ stream.stream_title }}
                                         </p>
                                     </a>
                                 </div>
                             </td>
-                            <td class="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
+                            <td class="px-6 py-4 text-right text-sm text-gray-500">
                                 <span class="text-gray-900 font-medium">{{ stream.game_name }} </span>
                             </td>
-                            <td class="hidden px-6 py-4 whitespace-nowrap text-sm text-gray-500 md:block">
+                            <td class="hidden px-6 py-4 text-sm text-gray-500 md:block">
                           <span :class="[statusStyles['success'], 'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize']">
                             {{ stream.viewers_count }}
                           </span>
@@ -81,6 +81,7 @@ import {
     ChevronRightIcon,
     OfficeBuildingIcon,
     SearchIcon,
+    ArrowNarrowUpIcon
 } from '@heroicons/vue/solid'
 import {computed} from "vue";
 import Loader from "./utils/Loader.vue";
@@ -96,9 +97,18 @@ defineProps({
         type: Boolean
     }
 })
-const emit = defineEmits(['onPaginate'])
+const emit = defineEmits(['onPaginate', 'onOrderBy'])
 const paginate = ref(1)
+
+let ascending = ref(false)
+function sort(){
+    ascending.value = !ascending.value
+}
 watch(paginate, ()=>emit('onPaginate', paginate.value))
+watch(ascending, ()=>emit('onOrderBy', {
+    sortBy: 'viewers_count',
+    order: ascending.value ? 'asc' : 'desc'
+}))
 
 const statusStyles = {
     success: 'bg-green-100 text-green-800',

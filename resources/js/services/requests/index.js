@@ -9,10 +9,12 @@ export const authLogout = async ()=>{
     return apiClient.post('auth/logout');
 }
 
-export const streams = async (page)=>{
+export const streams = async ({page, sort_by, sort_order})=>{
     return apiClient.get('streams', {
         params:{
-            page
+            page,
+            sort_by,
+            sort_order,
         }
     });
 }
@@ -30,6 +32,10 @@ export const streamsByTime = async ()=>{
 
 export const followedStreams = async ()=>{
     return apiClient.get('followed-streams');
+}
+
+export const filteredFollowedStreams = async ()=>{
+    return apiClient.get('filtered-followed-streams');
 }
 
 export const syncStreams = async ()=>{

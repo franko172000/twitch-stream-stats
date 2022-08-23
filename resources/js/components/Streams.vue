@@ -13,6 +13,7 @@
                 :streams="streamsArr"
                 :loader="streamLoader"
                 :pagination-meta="paginationMeta"
+                @onOrderBy="handleSorting"
                 @onPaginate="trackPagination" />
         </div>
     </main>
@@ -28,15 +29,22 @@ import {streams} from "../services/requests";
 const streamsArr = ref([]);
 const streamLoader = ref(true)
 const paginationMeta = ref({})
-async function getStreams(page){
-    const res = await streams(page);
+const currentPage = ref(1);
+async function getStreams(page, sort_order, sort_by){
+    const res = await streams({page, sort_order, sort_by});
     streamsArr.value = res.data.data;
     paginationMeta.value = res.data.meta;
     streamLoader.value = false;
 }
 async function trackPagination(val){
+    currentPage.value = val
     await getStreams(val)
 }
+
+async function handleSorting(data){
+    await getStreams(currentPage, data.order, data.sortBy )
+}
+
 onMounted( async ()=>{
     await getStreams()
 })

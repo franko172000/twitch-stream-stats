@@ -28,11 +28,13 @@ class FilteredFollowedStreamsAction extends Action
     public function execute(): Collection
     {
         $followedStreams = $this->user->followedStreams()->pluck('twitch_stream_id');
+
         $activeStreams = ActiveStream::topStreams()
             ->get();
 
         return $activeStreams->filter(function ($streams) use ($followedStreams) {
             return in_array($streams->twitch_stream_id, $followedStreams->toArray());
         });
+
     }
 }

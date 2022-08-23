@@ -7,6 +7,7 @@ use App\Actions\GetFollowedStreamsAction;
 use App\Http\Resources\FollowedStreamResource;
 use App\Http\Resources\StreamRescource;
 use App\Models\ActiveStream;
+use App\Models\FollowedStreams;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,7 @@ class StreamsController extends Controller
     {
         $streamsViews = ActiveStream::pluck('viewers_count');
         return StreamRescource::collection(
-            ActiveStream::orderBy('viewers_count', 'desc')->paginate(100)
+            ActiveStream::orderBy('viewers_count', request()->input('sort_order') ?? 'desc')->paginate(100)
         )->additional([
             'median_views' => $streamsViews->median()
         ]);
@@ -41,18 +42,38 @@ class StreamsController extends Controller
 
     public function streamsByStartTime()
     {
-        return StreamRescource::collection(ActiveStream::selectRaw(DB::raw('count(date_started) AS date_count'))
-            ->groupBy('date_started')
-            ->orderByRaw('ABS(UNIX_TIMESTAMP() - UNIX_TIMESTAMP(date_started))')
-            ->paginate(10));
+        $sqlDateFormat = "DATE_FORMAT(date_started, '%Y-%m-%d %H')";
+        return StreamRescource::collection(ActiveStream::selectRaw(DB::raw("count($sqlDateFormat) AS date_count, $sqlDateFormat as start_date"))
+            ->groupBy('start_date')
+            ->orderBy('date_count', 'desc')
+            ->get());
+    }
+
+    public function filteredFollowedStreams(): AnonymousResourceCollection
+    {
+        $user = Auth::user();
+
+        return StreamRescource::collection(FilteredFollowedStreamsAction::run([
+            'user' => $user
+        ]));
     }
 
     public function followedStreams(): AnonymousResourceCollection
     {
         $user = Auth::user();
-        return StreamRescource::collection(FilteredFollowedStreamsAction::run([
-            'user' => $user
-        ]));
+        $needViews = 0;
+        $activeStreams = ActiveStream::topStreams()->pluck('viewers_count');
+        $followedStreams = $user->followedStreams()->orderBy('viewers_count', 'desc')->get();
+        $leastActiveStreamsCount = $activeStreams->last();
+        $leastFollowedStreamsCount = $followedStreams->last()->viewers_count;
+        //check viewers count needed to get into top 1k streams
+        if ($followedStreams->count() && ($leastActiveStreamsCount > $leastFollowedStreamsCount)) {
+            $needViews = ($leastActiveStreamsCount - $leastFollowedStreamsCount) + 1;
+        }
+        return StreamRescource::collection($followedStreams)
+            ->additional([
+                'needed_views_count' => $needViews
+            ]);
     }
 
     public function syncFollowedStreams(): AnonymousResourceCollection

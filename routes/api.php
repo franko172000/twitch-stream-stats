@@ -27,4 +27,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('streams-by-date', [\App\Http\Controllers\StreamsController::class, 'streamsByStartTime']);
     Route::get('sync-followed-streams', [\App\Http\Controllers\StreamsController::class, 'syncFollowedStreams']);
     Route::get('followed-streams', [\App\Http\Controllers\StreamsController::class, 'followedStreams']);
+    Route::get('filtered-followed-streams', [\App\Http\Controllers\StreamsController::class, 'filteredFollowedStreams']);
 });

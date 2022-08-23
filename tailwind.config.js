@@ -9,5 +9,10 @@ module.exports = {
         center: true,
     },
   },
+    variants: {
+        extend: {
+            display: ["group-hover"],
+        },
+    },
   plugins: [],
 }
